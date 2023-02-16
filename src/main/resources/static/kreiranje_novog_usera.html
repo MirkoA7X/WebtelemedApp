@@ -88,6 +88,38 @@
     <form style="width: 50%; margin:0 auto;" action="/addNewUser">
 
 
+        <div class="row">
+            <div class="col-lg-3 d-sm-none d-md-none d-lg-block text-end"></div>
+            <div class="col-lg-6 col-12">
+                <div class="justify text-center">
+                    <div class="row mb-5">
+                        <div class="col-lg-12 col-5 mt-5">
+                            <h4>Unesite informacije o korisniku:</h4>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <form th:action="@{addNewUser}">
+                            <input th:field="${userTm.id}">
+                            <div class="col-lg-4 col-2">
+                            </div>
+                            <tr th:each="userTm : ${userTm}">
+                                <div hidden class="form-check form-check-inline">
+                                    <input class="form-check-input" th:field="${userTm.type}" type="radio" name="1" id="1"
+                                           value="1">
+                                    <label class="form-check-label mb-3" for="1">
+                                        PACIJENT
+                                    </label>
+                                </div>
+                                <div hidden class="form-check form-check-inline">
+                                    <input class="form-check-input" th:field="${userTm.type}" type="radio" name="2" id="2"
+                                           value="2" disabled>
+                                    <label class="form-check-label mb-3" for="2">
+                                        DOKTOR
+                                    </label>
+                                </div>
+
+
         <label class="d-block mb-2">Ime:</label>
         <input th:field="${userTm.ime}"
                class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-4" type="text"
@@ -116,7 +148,7 @@
         <label class="d-block mb-2">Lozinka:</label>
         <input th:field="${userTm.lozinka}"
                class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-4" type="number"
-               readonly>
+               required>
 
 
 
@@ -126,6 +158,15 @@
                >Spremi</button>
 
     </form>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
 
         <div class="row mb-4">
             <div class="col d-flex justify-content-center">
@@ -139,6 +180,7 @@
     <footer style="color: #f24521;text-align:center; padding-bottom: 1%;">Copyright &#169; Telemed / All rights reserved</footer>
 
 </div>
+
 </body>
 
 </html>
