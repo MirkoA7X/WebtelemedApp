@@ -88,41 +88,37 @@
     <form style="width: 50%; margin:0 auto;" action="/addNewUser">
 
 
-            <div class="form-outline mb-4 .was-validated">
-            <label for="ime1">Ime</label>
-            <input type="text" id="ime1" name="ime1" required placeholder="Unesite ime">
-            </div>
+        <label class="d-block mb-2">Ime:</label>
+        <input th:field="${userTm.ime}"
+               class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-4" type="text"
+                required>
 
-            <div class="form-outline mb-4 .was-validated">
-            <label for="prezime1">Prezime</label>
-            <input type="text" id="prezime1" name="prezime1" required placeholder="Unesite prezime">
-            </div>
+        <label class="d-block mb-2">Prezime:</label>
+        <input th:field="${userTm.prezime}"
+               class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-4" type="text"
+                 required>
 
-        <div class="form-outline mb-4 .was-validated">
-            <label for="datumRodenja1">Datum Rodenja</label>
-            <input type="date" id="datumRodenja1" name="datumRodenja1" required>
-        </div>
+        <label class="d-block mb-2">Datum rođenja:</label>
+        <input th:field="${userTm.datumRodenja}"
+               class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-4" type="date"
+               required>
 
-        <div class="form-outline mb-4 .was-validated">
-            <label for="brojMobitela1">Broj Mobitela</label>
-            <input type="tel" id="brojMobitela1" name="brojMobitela1" pattern="[0-9]{3}-[0-9]{4}-[0-9]{3}"
-                   placeholder="091-1234-567" required>
-        </div>
+        <label class="d-block mb-2">Telefon/Mobitel:</label>
+        <input th:field="${userTm.brojMobitela}"
+               class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-4" type="text"
+               placeholder="098/4556-748" pattern="[0-9/-]{7,}" required>
 
-        <div class="form-outline mb-4 .was-validated">
-            <label for="email1">Email</label>
-            <input type="email" id="email1" name="email1" required placeholder="example@gmail.com">
-        </div>
+        <label class="d-block mb-2">E-mail:</label>
+        <input th:field="${userTm.email}"
+               class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-4" type="email"
+               placeholder="name@example.com" required>
 
-        <div class="form-outline mb-4 .was-validated">
-            <label for="lozinka1">Lozinka</label>
-            <input type="password" id="lozinka1" name="lozinka1" required>
-        </div>
+        <label class="d-block mb-2">Lozinka:</label>
+        <input th:field="${userTm.lozinka}"
+               class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-4" type="number"
+               readonly>
 
-        <div class="form-outline mb-4 .was-validated">
-            <label for="mbo1">MBO</label>
-            <input type="number" id="mbo1" name="mbo1" maxlength="9" required>
-        </div>
+
 
 
         <button type="submit" class="btn btn-danger btn-block mb-4"
