@@ -25,24 +25,22 @@ public class DoctorController {
     @Autowired
     ReportTmRepository RpRepository;
 
-
     @GetMapping("/listUsers")
     public String listUsers(Model model) {
-        model.addAttribute(userTmList);
+        model.addAttribute(TmRepository.findByType(0));
         return "doktor_dashboard.html";
 
     }
 
     @GetMapping("/addNewUser")
     public String addNewUser(String ime1, String prezime1, String datumRodenja1, String brojMobitela1, String email1, String lozinka1, String mbo1, Model model) {
-        model.addAttribute(userTmList);
-        UserTm newUserTm = new UserTm(ime1, prezime1, datumRodenja1, brojMobitela1, email1, lozinka1, mbo1);
-        userTmList.add(newUserTm);
-        return "redirect: /listUsers";
+        UserTm newTmUser = new UserTm(ime1, prezime1, datumRodenja1, brojMobitela1, email1, lozinka1, mbo1);
+        TmRepository.save(new UserTm());
+        return "redirect:/listUsers";
 
     }
-    @GetMapping("/createNewUser")
-    public String createNewUser(Model model) {
+    @GetMapping("/showCreateNewUser")
+    public String showCreateNewUser(Model model) {
         model.addAttribute(userTmList);
         return "kreiranje_novog_usera.html";
 
@@ -50,17 +48,21 @@ public class DoctorController {
 
 
     @GetMapping("/showUser")
-    public String showUser(Model model) {
-        model.addAttribute(userTmList);
-        return "doktor_pregled_pojedinog_pacijenta.html";
+    public String showRecordsForUser (long userId, Model model) {
+        UserTm userTm = TmRepository.findById(userId).get();
+        model.addAttribute (userTm);
+        model.addAttribute (RpRepository.findByUserTm(userTm));
 
+        return "doktor_pregled_pojedinog_pacijenta.html";
     }
 
+    @GetMapping("/deletePatientByDoctor")
+    public String deletePatientByDoctor (Long id) {
+        UserTm userTm = TmRepository.findById (id).get ();
+        TmRepository.delete (userTm);
 
-
-
-    // nove metode za login, za redirekt  na login i test metoda za odabir pacijenta
-    //Za odabir pacijenta u klasi PatientController
+        return "redirect:/listUsers";
+    }
 
 
     @GetMapping("/login")
@@ -71,7 +73,6 @@ public class DoctorController {
     @GetMapping("/loginSubmit")
     public String login(String email, String lozinka, Model model) {
 
-        // find userTm in list
         UserTm userTm = TmRepository.findByEmailAndLozinka(email, lozinka);
         if (userTm != null) {
             System.out.println("UserTm found: " + userTm);
@@ -96,21 +97,4 @@ public class DoctorController {
 
 
 
-  /*  List<UserTm> userTmList = new ArrayList<>();
-    public DoctorController() {
-        userTmList.add(new UserTm("Mirko", "Bozic", "31.12.1978.", "099987654", "mirko@mail.com", "lozinka", "987654312"));
-
-    }
-    @GetMapping("/addPatient")
-    public String addPatient() {
-        return "Doktor - kreiranje novog pacijenta.html";
-    }
-
-    @GetMapping("/addPatient")
-    public String addPatient(String title) {
-        userTmList.add(new UserTm(title));
-
-        return "redirect:Doktor - kreiranje novog pacijenta.html";
-
-    }*/
 

@@ -11,8 +11,7 @@ public class UserTm {
     //0-Patient, 1-Admin
     int type = 0;
 
-    public UserTm() {
-    }
+
 
     private String ime;
     private String prezime;
@@ -21,6 +20,10 @@ public class UserTm {
     private String email;
     private String lozinka;
     private String mbo;
+
+    public UserTm() {
+    }
+
 
     @Override
     public String toString() {
@@ -46,6 +49,14 @@ public class UserTm {
         this.lozinka = lozinka;
         this.mbo = mbo;
     }
+
+    public UserTm (String email, String lozinka) {
+        this.email = email;
+        this.lozinka = lozinka;
+
+    }
+
+
 
     public String getIme() {
         return ime;
@@ -114,6 +125,7 @@ public class UserTm {
     public void setType(int type) {
         this.type = type;
     }
+
 
 
 }

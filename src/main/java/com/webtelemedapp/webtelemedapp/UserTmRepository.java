@@ -10,4 +10,6 @@ public interface UserTmRepository extends CrudRepository<UserTm,Long> {
    List <UserTm> findByType(int type);
 
     UserTm findByEmailAndLozinka(String email, String lozinka);
+
+
 }
