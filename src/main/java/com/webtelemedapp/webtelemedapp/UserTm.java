@@ -22,6 +22,21 @@ public class UserTm {
     private String lozinka;
     private String mbo;
 
+    @Override
+    public String toString() {
+        return "UserTm{" +
+                "id=" + id +
+                ", type=" + type +
+                ", ime='" + ime + '\'' +
+                ", prezime='" + prezime + '\'' +
+                ", datumRodenja='" + datumRodenja + '\'' +
+                ", brojMobitela='" + brojMobitela + '\'' +
+                ", email='" + email + '\'' +
+                ", lozinka='" + lozinka + '\'' +
+                ", mbo='" + mbo + '\'' +
+                '}';
+    }
+
     public UserTm(String ime, String prezime, String datumRodenja, String brojMobitela, String email, String lozinka, String mbo) {
         this.ime = ime;
         this.prezime = prezime;
