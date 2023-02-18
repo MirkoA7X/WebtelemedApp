@@ -15,9 +15,6 @@ public class DoctorController {
     UserTm currUser;
     List<UserTm> userTmList = new ArrayList<>();
 
-   /* public DoctorController(List<UserTm> userTmList) {
-        userTmList.add(new UserTm("Mirko", "Božić", "09.06.1991.", "0917256847", "mirko@gmail.com", "12345", "126547852" ));
-    }*/
 
     @Autowired
     UserTmRepository TmRepository;
@@ -56,8 +53,8 @@ public class DoctorController {
         return "doktor_pregled_pojedinog_pacijenta.html";
     }
 
-    @GetMapping("/deletePatientByDoctor")
-    public String deletePatientByDoctor (Long id) {
+    @GetMapping("/deleteUser")
+    public String deleteUser (Long id) {
         UserTm userTm = TmRepository.findById (id).get ();
         TmRepository.delete (userTm);
 
