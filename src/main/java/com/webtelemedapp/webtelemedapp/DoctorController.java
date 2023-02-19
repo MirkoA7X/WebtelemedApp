@@ -31,16 +31,31 @@ public class DoctorController {
 
     @GetMapping("/addNewUser")
     public String addNewUser(String ime1, String prezime1, String datumRodenja1, String brojMobitela1, String email1, String lozinka1, String mbo1, Model model) {
-        UserTm newTmUser = new UserTm(ime1, prezime1, datumRodenja1, brojMobitela1, email1, lozinka1, mbo1);
-        TmRepository.save(new UserTm());
+        UserTm newUserTm = new UserTm(ime1, prezime1, datumRodenja1, brojMobitela1, email1, lozinka1, mbo1);
+        TmRepository.save(newUserTm);
         return "redirect:/listUsers";
 
     }
     @GetMapping("/showCreateNewUser")
     public String showCreateNewUser(Model model) {
-        model.addAttribute(userTmList);
         return "kreiranje_novog_usera.html";
 
+    }
+
+    @GetMapping("/deleteReportByDoctor")
+    public String deleteByDoctor (Long id) {
+        ReportTm reportTm = RpRepository.findById (id).get ();
+        RpRepository.delete (reportTm);
+
+        return "redirect:/showRecordsForUser?userId=" + reportTm.getUser ().getId ();
+    }
+
+    @GetMapping("/deletePatientByDoctor")
+    public String deletePatientByDoctor (Long id) {
+        UserTm userTm = TmRepository.findById (id).get ();
+        TmRepository.delete (userTm);
+
+        return "redirect:/ShowUser";
     }
 
 
