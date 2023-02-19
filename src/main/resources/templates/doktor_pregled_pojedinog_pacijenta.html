@@ -80,8 +80,10 @@
           style="text-align: right;" onclick="window.location.href='patientrecord.html'"><img src="person.png"
               alt="person" width="100" height="100">Doktor</button></header>-->
 
-    <h1 style="text-align:center;padding:50px">Mirko Božić</h1>
-
+    <h1>
+  <th th:text="${user.firstName}"></th>
+  <th th:text="${user.lastName}"></th>
+  </h1>
 
   <table class="table .table-condensed">
     <thead>
@@ -96,13 +98,12 @@
 
     <tbody>
 
-    <tr th:each="item : ${userReportList}">
-      <td th:text="${item.date}"></td>
-      <td th:text="${item.systolic}"></td>
-      <td th:text="${item.diastolic}"></td>
-      <td th:text="${item.heartBeats}"></td>
-      <td th:text="${item.description}"></td>
-
+    <tr th:each="record : ${reportTmList}">
+      <td th:text="${idem.dtm1}"></td>
+      <td th:text="${item.st1}"></td>
+      <td th:text="${item.dt1}"></td>
+      <td th:text="${item.otk1}"></td>
+      <td th:text="${item.opis1}"></td>
     </tr>
 
     </tbody>

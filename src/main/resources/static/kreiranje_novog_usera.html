@@ -100,26 +100,26 @@
 
                     <div class="row">
                         <form th:action="@{addNewUser}">
-                            <input th:field="${userTm.id}">
-                            <div class="col-lg-4 col-2">
-                            </div>
-                            <tr th:each="userTm : ${userTm}">
-                                <!--
-                                <div hidden class="form-check form-check-inline">
-                                    <input class="form-check-input" th:field="${userTm.type}" type="radio" name="1" id=""
-                                           value="1">
-                                    <label class="form-check-label mb-3" for="1">
-                                        PACIJENT
-                                    </label>
-                                </div>
-                                <div hidden class="form-check form-check-inline">
-                                    <input class="form-check-input" th:field="${userTm.type}" type="radio" name="2" id="2"
-                                           value="2" disabled>
-                                    <label class="form-check-label mb-3" for="2">
-                                        DOKTOR
-                                    </label>
-                                </div>
-                                -->
+                            <!-- <input th:field="${userTm.id}">-->
+                             <div class="col-lg-4 col-2">
+                             </div>
+                             <tr th:each="userTm : ${userTm}">
+                                 <!--
+                                 <div hidden class="form-check form-check-inline">
+                                     <input class="form-check-input" th:field="${userTm.type}" type="radio" name="1" id=""
+                                            value="1">
+                                     <label class="form-check-label mb-3" for="1">
+                                         PACIJENT
+                                     </label>
+                                 </div>
+                                 <div hidden class="form-check form-check-inline">
+                                     <input class="form-check-input" th:field="${userTm.type}" type="radio" name="2" id="2"
+                                            value="2" disabled>
+                                     <label class="form-check-label mb-3" for="2">
+                                         DOKTOR
+                                     </label>
+                                 </div>
+                                 -->
 
                             <label class="d-block mb-2">Ime:</label>
                             <input th:field="${userTm.ime}"

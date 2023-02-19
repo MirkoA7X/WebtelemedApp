@@ -86,40 +86,24 @@
 
     <form style="width: 50%; margin:0 auto;" action="/addNewReport">
 
-        <div class="form-outline mb-4">
-            <label for="dtm1">Datum</label>
-            <input type="date" id="dtm1" name="dtm1" min="0" max="200" placeholder="mmHg" required>
-        </div>
+        <div class="row">
+            <form th:action="@{addNewreport}">
+                <label class="d-block mb-2">Sistolički tlak (veći broj):</label>
+                <input th:field="${record.st1}" class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-5" name="sistoličkiTlak" datatype="number" min="40" pattern="[0-9]{2,}" required/>
 
+                <label class="d-block mb-2">Dijastolički tlak (manji broj):</label>
+                <input th:field="${record.dt1}" class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-5" name="dijastoličkiTlak" datatype="number" min="20" pattern="[0-9]{2,}" required/>
 
-        <div class="form-outline mb-4">
-            <label for="st1">Sistolički tlak</label>
-            <input type="number" id="st1" name="st1" min="0" max="200" placeholder="mmHg" required>
-        </div>
+                <label class="d-block mb-2">Broj otkucaja srca:</label>
+                <input th:field="${record.otk1}" class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-5" name="brojOtkucajaSrca" datatype="number" min="20" pattern="[0-9]{2,}" required/>
 
-        <div class="form-outline mb-4">
-            <label for="dt1">Dijastolički tlak</label>
-            <input type="number" id="dt1" name="dt1" min="0" max="200" placeholder="mmHg" required>
-        </div>
+                <label class="d-block mb-2" for="subject">Opis stanja:</label>
+                <textarea th:field="${record.opis1}" class="col-xl-4 col-lg-5 col-md-6 col-sm-6 min-w-300 text-center mb-4" id="subject" name="subject" placeholder="Opišite kako se osjećate..." style="height:200px"></textarea>
 
-        <div class="form-outline mb-4">
-            <label for="otk1">Broj otkucaja</label>
-            <input type="number" id="otk1" name="otk1" min="0" max="400" placeholder="bpm" required>
-        </div>
+                <div class="clear"></div>
 
-        <div class="form-outline mb-4">
-            <label for="opis1">Kratki opis trenutnog stanja</label>
-            <textarea name="opis1" id="opis1" cols="50" rows="5" style="text-align: center;"></textarea>
-        </div>
-
-        <div class="row mb-4">
-            <div class="col d-flex justify-content-center">
-            </div>
-        </div>
-
-        <button type="submit" class="btn btn-danger btn-block mb-4"
-                style="font-size: 20px; background-color: #f24521;"
-                >Podnesi</button>
+                <button type="submit" class="btn mb-5 btn-danger"><b>SPREMI</b></button>
+            </form>
 
     </form>
 

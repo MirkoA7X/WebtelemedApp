@@ -118,8 +118,8 @@
             <td th:text="${item.brojMobitela}"></td>
             <td th:text="${item.email}"></td>
             <td th:text="${item.mbo}"></td>
-            <td><a href="#" onclick="deleteRow(this);">Izbriši</a></td>
             <td> <a th:href="@{'/showUser?userId=' + ${userTM.id}}"> View </a> </td>
+            <td><a th:href="@{'/deletePatientByDoctor?id=' + ${userTm.id}}" onclick="return confirm('Da li ste sigurni?');">Izbriši</a></td>
         </tr>
 
         </tbody>
@@ -128,7 +128,7 @@
 
     <form>
 
-        <button class="btn btn-danger btn-block mb-4" type="button" name="button" onclick="window.location.href='createNewUser'"
+        <button type="submit" class="btn btn-danger btn-block mb-4" type="button" name="button" onclick="window.location.href='/createNewUser'"
         >Dodaj novog pacijenta</button>
 
 

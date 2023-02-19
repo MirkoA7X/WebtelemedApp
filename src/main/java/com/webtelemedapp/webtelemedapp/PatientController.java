@@ -33,7 +33,7 @@ public class PatientController {
 
     @GetMapping("/listReports")
     public String listReports (long userId, Model model) {
-        UserTm currUser = TmRepository.findById (userId).get ();
+        UserTm currUser = TmRepository.findById (userId).get();
         model.addAttribute ("currUser", currUser);
         model.addAttribute (RpRepository.findByUserTm (currUser));
 
@@ -50,11 +50,11 @@ public class PatientController {
     @GetMapping("/delete")
     public String delete (Long id) {
 
-        ReportTm reportTm = RpRepository.findById (id).get ();
+        ReportTm reportTm = RpRepository.findById (id).get();
         RpRepository.delete (reportTm);
 
 
-        return "redirect:/listReports?userId=" + reportTm.getUser ().getId ();
+        return "redirect:/listReports?userId=" + reportTm.getUser().getId();
 
     }
 
