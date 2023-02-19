@@ -87,7 +87,7 @@
     <form style="width: 50%; margin:0 auto;" action="/addNewReport">
 
         <div class="row">
-            <form th:action="@{addNewreport}">
+            <form th:action="@{addNewReport}">
                 <label class="d-block mb-2">Sistolički tlak (veći broj):</label>
                 <input th:field="${reportTm.st1}" class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-5" name="sistoličkiTlak" datatype="number" min="40" pattern="[0-9]{2,}" required/>
 
