@@ -45,7 +45,7 @@ public class DoctorController {
 
 
     @GetMapping("/showUser")
-    public String showRecordsForUser (long userId, Model model) {
+    public String showUser (long userId, Model model) {
         UserTm userTm = TmRepository.findById(userId).get();
         model.addAttribute (userTm);
         model.addAttribute (RpRepository.findByUserTm(userTm));
